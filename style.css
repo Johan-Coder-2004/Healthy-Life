@@ -1,0 +1,249 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body with Pink-Purple Gradient Background */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #8d36de, #c75a91); /* Pink to purple gradient */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Chat Container with Deep Navy Blue Background */
+.chat-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  height: 90vh;
+  background: linear-gradient(135deg, #6A1B9A, #4527A0);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar with Dark Charcoal Gray Background */
+.sidebar {
+  width: 25%;
+  background: linear-gradient(135deg, #a3486c, #9932CC); /* Dark charcoal gray */
+  padding: 15px;
+  border-right: 1px solid #2d2d2d;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat List */
+.chat-list {
+  flex: 1; /* Take up remaining space in the sidebar */
+  overflow-y: auto; /* Enable scrolling if there are many users */
+}
+
+/* Chat Window */
+.chat-window {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.chat-list .chat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.chat-list .chat-item.active,
+.chat-list .chat-item:hover {
+  background: linear-gradient(90deg, #2d2d2d 0%, #1a1a1a 100%);
+}
+
+/* Chat Item Alignment */
+.chat-item {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+  gap: 10px; /* Add spacing between the icon and text */
+}
+
+.chat-item .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-item .chat-info {
+  flex: 1; /* Allow the text to take up remaining space */
+  text-align: left; /* Align text to the left */
+}
+
+.chat-item h3 {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Adjust font size if needed */
+  display: flex;
+  align-items: center; /* Align text and active dot vertically */
+  gap: 8px; /* Add spacing between text and active dot */
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #2d2d2d;
+}
+
+.chat-header .bubble {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Active Dot */
+.active-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  margin-left: 8px;
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* Message Container */
+.message-container {
+  flex: 1; 
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #0d0d0d; /* Dark background for the chat container */
+}
+
+/* Message Bubbles */
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%; /* Limit message width */
+  padding: 12px 16px;
+  border-radius: 18px;
+  position: relative;
+  word-wrap: break-word;
+}
+
+/* Sent Messages (Current User) */
+.message.sent {
+  align-self: flex-end; /* Align to the right */
+  background: linear-gradient(135deg, #9333ea, #6b21a8); /* Gradient purple */
+  color: #fff; /* White text */
+  border-radius: 18px 18px 0 18px; /* Rounded corners on the right */
+  margin: 10px 0; /* Add some margin for spacing */
+}
+
+.message.sent .sender-name {
+  text-align: right; /* Align sender name to the right */
+  font-size: 0.9em; /* Smaller font size for sender name */
+  color: #ccc; /* Light gray for sender name */
+  margin-bottom: 5px; /* Add some space below the sender name */
+}
+
+.message.sent .bubble {
+  word-wrap: break-word; /* Ensure long messages wrap */
+}
+
+/* Received Messages (Other Users) */
+.message.received {
+  align-self: flex-start; /* Align to the left */
+  background: #2d2d2d; /* Dark gray */
+  color: #fff; /* White text */
+  border-radius: 0 18px 18px 18px; /* Rounded corners on the left */
+  margin: 10px 0; /* Add some margin for spacing */
+}
+
+.message.received .sender-name {
+  text-align: left; /* Align sender name to the left */
+  font-size: 0.9em; /* Smaller font size for sender name */
+  color: #ccc; /* Light gray for sender name */
+  margin-bottom: 5px; /* Add some space below the sender name */
+}
+
+.message.received .bubble {
+  word-wrap: break-word; /* Ensure long messages wrap */
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 0.8em; /* Smaller font size for timestamp */
+  color: #999; /* Light gray for timestamp */
+  margin-top: 5px; /* Add some space above the timestamp */
+  display: block; /* Ensure it's on a new line */
+}
+
+/* Input Box */
+.input-box {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px; /* Increased padding for a larger text box */
+  border-top: 1px solid #2d2d2d;
+  background: #181818;
+}
+
+.input-box input {
+  flex: 1;
+  padding: 14px 18px; /* Increased padding for a larger text box */
+  background: #222;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  outline: none;
+  font-size: 16px; /* Increased font size */
+  margin-right: 12px;
+  transition: all 0.3s; /* Smooth transition for focus effect */
+  box-shadow: 0 0 8px rgba(147, 51, 234, 0.3); /* Slight glow in default state */
+}
+
+/* Remove hover effect */
+.input-box input:hover {
+  transform: none; /* No scaling */
+  box-shadow: 0 0 8px rgba(147, 51, 234, 0.3); /* Keep default glow */
+  background: #222; /* Keep default background */
+}
+
+.input-box .send-button {
+  background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%);
+  padding: 12px; /* Adjusted padding for a perfect circle */
+  border: none;
+  border-radius: 50%; /* Makes the button circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 8px rgba(147, 51, 234, 0.3); /* Slight glow in default state */
+}
+
+.input-box .send-button i {
+  color: #fff; /* White icon color */
+  font-size: 16px; /* Adjust icon size */
+}
+
+.input-box input::placeholder {
+  color: #fff; /* White placeholder text */
+  opacity: 0.7; /* Slightly transparent for better readability */
+}
+
+/* Hover Effect for Send Button */
+.input-box .send-button:hover {
+  transform: scale(1.1); /* Scale up on hover */
+  box-shadow: 0 0 16px rgba(255, 105, 180, 0.5); /* Glow effect with pinkish-red */
+  background: linear-gradient(135deg, #ff69b4 0%, #ff7f50 100%); /* Pinkish-red to coral gradient */
+}
